@@ -18,6 +18,46 @@ struct node
 	struct node *right;
 };
 
+
+struct node* GetNewNode(int data)
+{
+	//allocate memory of the new node
+	struct node* tempNode = (struct node*) malloc(sizeof(struct node));
+
+	//enter the data
+	tempNode->data = data;
+
+	tempNode->left = NULL;
+	tempNode->right = NULL;
+
+	return(tempNode);
+}
+
+//allocate the tree with given data and NULL left and right pointers
+struct node* Insert(struct node* node, int data)
+{
+	//if tree is empty
+	if (node == NULL)
+	{
+		node = GetNewNode(data);
+	}
+	//if given value is lesser, insert to the left subtree
+	else if(data <= node->data)
+	{
+		node->left = Insert(node->left, data);
+	}
+	//if given value is greater, insert to the right subtree
+	else if(data > node->data)
+	{
+		node->right = Insert(node->right, data);
+	}
+
+	return node;
+}
+
+
+
+
 /* Recursive function to find the maximum depth of a binary tree */
 int maxDepth(struct node *root)
 {
@@ -36,51 +76,31 @@ int maxDepth(struct node *root)
 	}
 }
 
-//allocate the tree with given data and NULL left and right pointers
 
-struct node* newNode(int data)
-{
-	//allocate memory of the new node
-	struct node* tempNode = (struct node*) malloc(sizeof(struct node));
-
-	//enter the data
-	tempNode->data = data;
-
-	tempNode->left = NULL;
-	tempNode->right = NULL;
-
-	return(tempNode);
-}
 
 
 
 int main(void)
 {
-	//create the root node
-	struct node *root = newNode(1);
+	
+	struct node* rootPtr = NULL;
 
-	root->left =  newNode(2);
-	root->right =  newNode(3);
-
-	//creating branches and leaves
-	root->left->left = newNode(4);
-	root->left->right = newNode(5);
-
-	root->left->left->left = newNode(10);
-	root->left->left->right = newNode(11);
-
-	root->left->left->left->left = newNode(12);
-	root->left->left->left->right = newNode(13);
-
-
-	root->right->left = newNode(6);
-	root->right->right = newNode(7);
-
-	root->right->left->left = newNode(8);
-	root->right->left->right = newNode(9);
+	rootPtr = Insert(rootPtr,7);
+	Insert(rootPtr,2);
+	Insert(rootPtr,3);
+	Insert(rootPtr,4);
+	Insert(rootPtr,5);
+	Insert(rootPtr,1);
+	Insert(rootPtr,7);
+	Insert(rootPtr,8);
+	Insert(rootPtr,9);
+	Insert(rootPtr,10);
+	Insert(rootPtr,11);
+	Insert(rootPtr,12);
+	Insert(rootPtr,13);
 
 
-	printf("Maximum depth of the binary tree is: %d",maxDepth(root));
+	printf("Maximum depth of the binary tree is: %d \n",maxDepth(rootPtr));
 
 	return EXIT_SUCCESS;
 }
