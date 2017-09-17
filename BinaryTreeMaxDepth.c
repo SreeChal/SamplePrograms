@@ -23,7 +23,7 @@ int maxDepth(struct node *root)
 {
 	if(root == NULL)
 	{
-		return 0;
+		return -1;
 	}
 	else
 	{
