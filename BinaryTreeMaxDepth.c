@@ -91,14 +91,12 @@ int main(void)
 	Insert(rootPtr,4);
 	Insert(rootPtr,5);
 	Insert(rootPtr,1);
-	Insert(rootPtr,7);
 	Insert(rootPtr,8);
 	Insert(rootPtr,9);
 	Insert(rootPtr,10);
 	Insert(rootPtr,11);
 	Insert(rootPtr,12);
 	Insert(rootPtr,13);
-
 
 	printf("Maximum depth of the binary tree is: %d \n",maxDepth(rootPtr));
 
