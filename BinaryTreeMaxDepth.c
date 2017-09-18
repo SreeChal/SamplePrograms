@@ -78,8 +78,6 @@ int maxDepth(struct node *root)
 
 
 
-
-
 int main(void)
 {
 	
@@ -87,13 +85,13 @@ int main(void)
 
 	rootPtr = Insert(rootPtr,7);
 	Insert(rootPtr,2);
-	Insert(rootPtr,3);
 	Insert(rootPtr,4);
+	Insert(rootPtr,3);
 	Insert(rootPtr,5);
 	Insert(rootPtr,1);
+	Insert(rootPtr,10);
 	Insert(rootPtr,8);
 	Insert(rootPtr,9);
-	Insert(rootPtr,10);
 	Insert(rootPtr,11);
 	Insert(rootPtr,12);
 	Insert(rootPtr,13);
